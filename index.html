@@ -804,6 +804,120 @@
       font-size: 20px;
     }
 
+    .groom-guide {
+      background: #efe6d1;
+      border-top: 1px solid rgba(185, 138, 54, 0.25);
+      padding: 90px 20px 110px;
+    }
+
+    .groom-guide .section-intro {
+      max-width: 760px;
+    }
+
+    .groom-priority {
+      margin: 0 auto 30px;
+      max-width: 900px;
+      background: #fff9ea;
+      border: 1px solid rgba(185, 138, 54, 0.35);
+      border-left: 5px solid var(--gold);
+      border-radius: 16px;
+      padding: 14px 16px;
+      color: #4f5e52;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .groom-priority strong {
+      color: var(--green);
+    }
+
+    .groom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .groom-card {
+      background: #fffdf7;
+      border: 1px solid rgba(185, 138, 54, 0.3);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 15px 45px rgba(55, 65, 50, 0.08);
+    }
+
+    .groom-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      color: var(--green);
+      margin: 10px 0 12px;
+    }
+
+    .groom-card .meta {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .groom-card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #687169;
+    }
+
+    .groom-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #5f685f;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .groom-list li+li {
+      margin-top: 7px;
+    }
+
+    .groom-flag {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #f4ead2;
+      border: 1px solid rgba(185, 138, 54, 0.35);
+      color: #5f6446;
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .groom-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      background: #f4ead2;
+      border: 1px solid rgba(185, 138, 54, 0.35);
+      color: var(--green);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+
+    .groom-card .map-button {
+      margin-top: 16px;
+    }
+
     .fade {
       opacity: 0;
       transform: translateY(28px);
@@ -837,7 +951,8 @@
       }
 
       .event-grid,
-      .location-grid {
+      .location-grid,
+      .groom-grid {
         grid-template-columns: 1fr;
       }
 
@@ -856,6 +971,7 @@
       .slide,
       .slide-photo,
       .slide-placeholder {
+        object-fit: contain;
         min-height: 390px;
         height: 390px;
       }
@@ -969,6 +1085,7 @@
         </p>
         <a class="scroll" href="#events">Explore the celebrations ↓</a>
         <a class="scroll" href="#location">Location details ↓</a>
+        <a class="scroll" href="#groom-invitees">Groom invitees guide ↓</a>
       </div>
     </section>
 
@@ -1313,21 +1430,23 @@
           </button>
           <div class="slides">
 
-            <div class="slide">
-              <img class="slide-photo" src="shivamallu.JPG" alt="Shivamallu family" loading="lazy" />
-              <div class="caption"><strong>Our Families</strong>The people who make every celebration meaningful.</div>
+            <div class="slide active">
+              <img class="slide-photo" src="shivamallu.jpg" alt="Shivamallu family" loading="lazy" />
+              <!-- <div class="caption"><strong>Our Families</strong>The people who make every celebration meaningful.</div> -->
             </div>
             <div class="slide">
-              <img class="slide-photo" src="pulluri.JPG" alt="Pulluri family" loading="lazy" />
-              <div class="caption"><strong>Our Families</strong>The people who make every celebration meaningful.</div>
+              <img class="slide-photo" src="pulluri.jpg" alt="Pulluri family" loading="lazy" />
+              <!-- <div class="caption"><strong>Our Families</strong>The people who make every celebration meaningful.</div> -->
 
               <!-- <div class="slide-placeholder"><div class="placeholder-inner"><div class="placeholder-icon">🌿</div><div class="placeholder-title">Vilas &amp; Sravani</div><div class="placeholder-text">Couple Photograph<br><small>Replace this placeholder with your favourite couple photo.</small></div></div></div> -->
               <!-- <div class="caption"><strong>Our Story</strong>Two hearts, one beautiful beginning.</div> -->
             </div>
-            <div class="slide active">
-              <iframe src="https://drive.google.com/file/d/1S_0ouickITJoTFqW3iBy4sz5NISzTirj/preview?usp=sharing"
-                width="100%" height="580" allow="autoplay"></iframe>
-              <!-- <video class="slide-photo" src="video.mp4" controls autoplay muted loop playsinline></video> -->
+            <div class="slide">
+              <a href="https://www.youtube.com/watch?v=A77m7yiBseQ" target="_blank" rel="noopener noreferrer">
+                <img class="slide-photo" src="https://img.youtube.com/vi/A77m7yiBseQ/hqdefault.jpg"
+                  alt="Wedding invitation video thumbnail" loading="lazy" />
+              </a>
+              <div class="caption"><strong>Engagement Video</strong>Tap to watch on YouTube ↗</div>
             </div>
             <!-- <div class="slide">
      <div class="slide-placeholder" style="background:radial-gradient(circle at 50% 25%,#fff3d0,transparent 34%),linear-gradient(145deg,#e8c48b,#b9cfa6)"><div class="placeholder-inner"><div class="placeholder-icon">🌼</div><div class="placeholder-title">Haldi Memories</div><div class="placeholder-text">Haldi / Mehendi Photograph<br><small>Replace this placeholder with a pre-wedding memory.</small></div></div></div>
@@ -1340,7 +1459,7 @@
           </div>
           <button class="carousel-btn next" aria-label="Next photo">›</button>
           <div class="dots" aria-label="Carousel navigation">
-            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
           </div>
         </div>
       </div>
@@ -1379,7 +1498,7 @@
       <div class="container">
         <div class="section-head fade">
           <div class="eyebrow">The countdown begins</div>
-          <h2>Until We Say “I Do”</h2>
+          <h2>Until We Tie the Knots</h2>
         </div>
         <div class="count-grid fade" id="countdown">
           <div class="count-box">
@@ -1403,6 +1522,85 @@
       <p>With love, laughter &amp; blessings.</p>
       <p>27 · 08 · 2026</p>
     </footer>
+
+    <section class="groom-guide" id="groom-invitees">
+      <div class="container">
+        <div class="section-head fade">
+          <div class="eyebrow">For groom invitees</div>
+          <h2>Stay, Reach &amp; Travel</h2>
+          <p class="section-intro">
+            Guests from groom's side can use this quick guide for where to stay,
+            where to board/deboard, and who to contact immediately.
+          </p>
+        </div>
+        <div class="groom-priority fade">
+          <strong>Important:</strong> 5 rooms are reserved in Societies Banquet Hall.
+          For room support or arrival coordination, please call Satish Reddy (Groom's Relative).
+          For any inconvenience or assistance with other room availability, call 7032038453.
+        </div>
+        <div class="groom-grid">
+          <article class="groom-card fade">
+            <div class="meta">Groom's Home</div>
+            <h3>Home Location</h3>
+            <ul class="groom-list">
+              <li><strong>Address:</strong> 1-5-150/13, Anjanapuri Colony, Old Alwal</li>
+              <li><strong>City:</strong> Telangana - 500010</li>
+            </ul>
+            <div class="groom-actions">
+              <a class="contact-link" href="tel:+919246505567">Call Groom's Father: 92465 05567</a>
+            </div>
+            <div class="groom-actions">
+              <a class="contact-link" href="tel:+918712334643">Call Groom's Brother: 87123 34643</a>
+            </div>
+            <div class="groom-actions">
+              <a class="contact-link" href="tel:+919866612601">Call Groom's Uncle: 98666 12601</a>
+            </div>
+            <div class="groom-flag">Use this as primary family location</div>
+            <a class="map-button" target="_blank" rel="noopener"
+              href="https://maps.app.goo.gl/rGuK6vRGDLAsSXsU6?g_st=ic">Open in Google Maps ↗</a>
+          </article>
+
+          <article class="groom-card fade">
+            <div class="meta">Reserved Stay</div>
+            <h3>Rooms Location</h3>
+            <ul class="groom-list">
+              <li><strong>Stay:</strong> Bheema Pride, near Suchitra</li>
+              <li><strong>Distance:</strong> Approx. 4.5 Kms from groom's house</li>
+              <li><strong>Reserved:</strong> 5 rooms in Societies Banquet Hall</li>
+            </ul>
+            <div class="groom-actions">
+              <a class="contact-link" href="tel:+919985104848">Call Satish Reddy (Groom's Relative): 99851 04848</a>
+              <a class="contact-link" href="tel:+917032038453">Call for Inconvenience Help: 70320 38453</a>
+            </div>
+            <a class="map-button" target="_blank" rel="noopener" href="https://maps.app.goo.gl/Mjfck7eBMQKjkyQT6">Open
+              Rooms Area ↗</a>
+          </article>
+
+          <article class="groom-card fade">
+            <div class="meta">Nearby Transit</div>
+            <h3>Bus &amp; Rail Access</h3>
+            <ul class="groom-list">
+              <li><strong>Bus Point:</strong> Jagavis Kritunga Train Restaurant, Suchitra X Road, Jeedimetla, Hyderabad
+              </li>
+              <li><strong>Rail Point:</strong> Secunderabad Railway Station Road, Secunderabad, Telangana 500003</li>
+              <li><strong>Rail Point 2:</strong> Kacheguda Railway Station, Nimboliadda, Kachiguda, Hyderabad, Telangana
+                500027</li>
+
+            </ul>
+            <a class="map-button" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/place/Jagavis+Kritunga+Train+Restaurant,+25,+Suchitra+Rd,+Ramraj+Nagar,+Ramraju+Nagar,+Jeedimetla,+Hyderabad,+Secunderabad,+Telangana+500067/@17.5009183,78.4772968,16z/data=!4m14!1m7!3m6!1s0x3bcb9aa14adc6853:0x1e94aa0a4da8ecfd!2sSuchitra+X+Rd,+Spring+Fields+Colony,+Jeedimetla,+Secunderabad,+Telangana+500067!8m2!3d17.5032886!4d78.4799412!16s%2Fg%2F11h_d7bzxf!3m5!1s0x3bcb9aa11c480a35:0x954cc7ee22bc6142!8m2!3d17.5014043!4d78.4782674!16s%2Fg%2F11c2jb9jpm?g_ep=Eg1tbF8yMDI2MDgxMV8wIOC7DCoASAJQAg%3D%3D">Open
+              Bus Boarding Point ↗</a>
+            <a class="map-button" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/place/Secunderabad+Railway+Station+Rd,+Secunderabad,+Telangana+500003/@17.4339809,78.5014955,16z/data=!4m6!3m5!1s0x3bdbcf5dcd54aecf:0xe16a19b417174fb0!8m2!3d17.4339809!4d78.5014955!16s%2Fg%2F11c3wvnn03?g_ep=Eg1tbF8yMDI2MDgxMV8wIOC7DCoASAJQAg%3D%3D">Open
+              Sec-bad
+              Railway Station ↗</a>
+            <a class="map-button" target="_blank" rel="noopener" href="https://maps.app.goo.gl/jrP4drkLrKgaLHJL8">Open
+              Kacheguda
+              Railway Station ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script>
