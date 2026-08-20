@@ -309,6 +309,50 @@
       color: var(--green);
     }
 
+    .music-toggle {
+      position: fixed;
+      top: calc(14px + env(safe-area-inset-top, 0px));
+      right: 16px;
+      z-index: 35;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(185, 138, 54, 0.5);
+      background: rgba(255, 253, 247, 0.92);
+      color: var(--green);
+      box-shadow: 0 8px 24px rgba(38, 57, 46, 0.14);
+      backdrop-filter: blur(5px);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .music-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(38, 57, 46, 0.2);
+    }
+
+    .music-toggle .icon {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .music-toggle .label {
+      max-width: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: max-width 0.25s ease;
+    }
+
+    .music-toggle:hover .label,
+    .music-toggle:focus-visible .label {
+      max-width: 130px;
+    }
+
     .section {
       padding: 100px 20px;
       position: relative;
@@ -957,6 +1001,11 @@
         padding: 35px 8px;
       }
 
+      .music-toggle {
+        right: 12px;
+        top: calc(10px + env(safe-area-inset-top, 0px));
+      }
+
       .names {
         font-size: 78px;
       }
@@ -1073,6 +1122,13 @@
 </head>
 
 <body>
+  <audio id="bgMusic" loop preload="auto" autoplay playsinline>
+    <source src="audio.mp3" type="audio/mpeg" />
+  </audio>
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music" aria-pressed="false">
+    <span class="icon" id="musicIcon">▶</span>
+    <span class="label" id="musicLabel">Play music</span>
+  </button>
   <div class="page">
     <div class="botanical left">
       <i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i
@@ -1632,6 +1688,59 @@
 
   <script>
     const weddingDate = new Date("2026-08-27T11:20:00+05:30").getTime();
+    const bgMusic = document.getElementById("bgMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const musicIcon = document.getElementById("musicIcon");
+    const musicLabel = document.getElementById("musicLabel");
+
+    function setMusicUI(isPlaying) {
+      musicIcon.textContent = isPlaying ? "❚❚" : "▶";
+      musicLabel.textContent = isPlaying ? "Pause music" : "Play music";
+      musicToggle.setAttribute("aria-pressed", String(isPlaying));
+      musicToggle.setAttribute(
+        "aria-label",
+        isPlaying ? "Pause background music" : "Play background music"
+      );
+    }
+
+    async function tryAutoplay() {
+      try {
+        await bgMusic.play();
+        setMusicUI(true);
+      } catch (_err) {
+        setMusicUI(false);
+      }
+    }
+
+    musicToggle.addEventListener("click", async () => {
+      if (bgMusic.paused) {
+        try {
+          await bgMusic.play();
+          setMusicUI(true);
+        } catch (_err) {
+          setMusicUI(false);
+        }
+      } else {
+        bgMusic.pause();
+        setMusicUI(false);
+      }
+    });
+    setMusicUI(false);
+
+    window.addEventListener("load", () => {
+      tryAutoplay();
+    });
+
+    const startOnFirstGesture = () => {
+      if (bgMusic.paused) {
+        tryAutoplay();
+      }
+      window.removeEventListener("pointerdown", startOnFirstGesture);
+      window.removeEventListener("keydown", startOnFirstGesture);
+    };
+    window.addEventListener("pointerdown", startOnFirstGesture);
+    window.addEventListener("keydown", startOnFirstGesture);
+
     function tick() {
       let d = Math.max(0, weddingDate - Date.now());
       const days = Math.floor(d / 86400000);
